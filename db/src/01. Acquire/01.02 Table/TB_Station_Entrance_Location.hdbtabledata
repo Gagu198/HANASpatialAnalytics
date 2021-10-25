@@ -1,0 +1,25 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "TB_Station_Entrance_Location",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "StationEntrances2020_v4.csv",
+                "has_header": true
+            },
+            "import_settings": {
+                "import_columns": [
+                        "ID" , 
+                        "Train_Station" ,
+                        "Street_Name" ,
+                        "Street_Type" ,
+                        "Entrance_Type",
+                        "LAT",
+                        "LONG",
+                        "Exit_Number"
+                ]
+            }
+        }
+    ]
+}

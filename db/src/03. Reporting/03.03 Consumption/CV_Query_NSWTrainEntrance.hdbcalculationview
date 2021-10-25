@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_Query_NSWTrainEntrance" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_Query_NSWTrainEntrance"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="CV_Facts_TrainTotalEmployee">
+    <resourceUri>CV_Facts_TrainTotalEmployee</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="ID"/>
+      <viewAttribute id="TotalEmployee"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="CV_Facts_TrainTotalEmployee"/>
+  </calculationView>
+</calculationViews>
+
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="ID$local">
+      <keyMapping columnObjectName="Projection_1" columnName="ID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="TotalEmployee" order="1" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="TotalEmployee"/>
+      <measureMapping columnObjectName="Projection_1" columnName="TotalEmployee"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="CV_Dim_TrainEntranceLocation">
+      <attributes>
+        <attributeRef>ID$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>ID</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_N" joinType="inner" joinOperator="Equal"/>
+      <temporalJoinProperties/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-145" y="203"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="CV_Dim_TrainEntranceLocation" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="246"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

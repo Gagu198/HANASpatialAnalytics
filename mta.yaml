@@ -1,0 +1,19 @@
+_schema-version: '2.1'
+ID: HANA_SPATIAL_ANALYTICS
+version: 0.0.1
+modules:
+  - name: HANA_SPATIAL_ANALYTICS
+    type: hdb
+    path: db
+    requires:
+      - name: hdi_db1
+        properties:
+          TARGET_CONTAINER: '~{hdi-container-name}'
+resources:
+  - name: hdi_db1
+    type: com.sap.xs.hdi-container
+    parameters:
+      config:
+        schema: HANA_SPATIAL_SCHEMA
+    properties:
+      hdi-container-name: '${service-name}'

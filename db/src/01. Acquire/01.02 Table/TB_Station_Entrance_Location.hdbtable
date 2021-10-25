@@ -1,0 +1,10 @@
+COLUMN TABLE "TB_Station_Entrance_Location" (
+     "ID" INT, 
+    "Train_Station" NVARCHAR(100),
+    "Street_Name" NVARCHAR(30),
+    "Street_Type" NVARCHAR(10),
+    "Entrance_Type" NVARCHAR(30),
+    "LAT" NVARCHAR(30),
+    "LONG" NVARCHAR(30),
+    "Exit_Number" NVARCHAR(30)
+)

@@ -1,0 +1,4 @@
+COLUMN TABLE "TB_TotalEmployee" (
+     "ID" INT, 
+    "TotalEmployee" BIGINT
+)
